@@ -1,9 +1,11 @@
-package com.example.demo.edu.entity;
+package com.atguigu.eduservice.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.util.Date;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,20 +17,19 @@ import lombok.experimental.Accessors;
  * 讲师
  * </p>
  *
- * @author zhoutao
- * @since 2020-04-29
+ * @author testjava
+ * @since 2020-02-24
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("edu_teacher")
-@ApiModel(value="Teacher对象", description="讲师")
-public class Teacher implements Serializable {
+@ApiModel(value="EduTeacher对象", description="讲师")
+public class EduTeacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "讲师ID")
-    @TableId(value = "id", type = IdType.ID_WORKER)
+    @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
 
     @ApiModelProperty(value = "讲师姓名")
@@ -51,7 +52,6 @@ public class Teacher implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     @TableLogic
-    @TableField(fill = FieldFill.INSERT)
     private Boolean isDeleted;
 
     @ApiModelProperty(value = "创建时间")
