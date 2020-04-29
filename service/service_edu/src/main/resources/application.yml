@@ -1,0 +1,27 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.78.82.92:3306/test
+    username: root
+    password: 123456
+  #设置为开发环境dev开发环境。test测试环境、prod正式环境
+  profiles:
+    active: dev
+  rabbitmq:
+    ssl:
+      validate-server-certificate:
+  jackson:
+    time-zone: GMT+8
+    date-format: 'yyyy-MM-dd HH:mm:ss'
+mybatis-plus:
+  configuration:
+    #是否打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #逻辑删除默认值，如果不设置默认0整除，1删除
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+server:
+  port: 8001
